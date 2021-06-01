@@ -1,0 +1,28 @@
+*{
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: rgb(43, 43, 117);
+    --secondary-color: rgb(48, 38, 85);
+}
+
+body{
+    background: var(--primary-color);
+    margin: 0;
+}
+.header{
+    padding: 1.7rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.search{
+    border-radius: 5px;
+    border: 2px solid var(--secondary-color);
+    padding: .5rem .3rem;
+    background: transparent;
+    transition: background .3s ease;
+}
+.search:focus{
+    outline: none;
+    background: #fff;
+}
