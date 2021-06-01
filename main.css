@@ -2,14 +2,15 @@
     box-sizing: border-box;
 }
 :root{
-    --primary-color: rgb(43, 43, 117);
-    --secondary-color: rgb(48, 38, 85);
+    --primary-color: rgb(78, 78, 212);
+    --secondary-color: rgba(56, 80, 148, 0.897);
 }
 
 body{
     background: var(--primary-color);
     margin: 0;
 }
+
 .header{
     padding: 1.7rem;
     display: flex;
@@ -17,7 +18,7 @@ body{
 }
 .search{
     border-radius: 5px;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid rgb(78, 78, 99);
     padding: .5rem .3rem;
     background: transparent;
     transition: background .3s ease;
@@ -25,4 +26,48 @@ body{
 .search:focus{
     outline: none;
     background: #fff;
+}
+
+main{
+   display: flex;
+   justify-content: center;
+   flex-wrap: wrap;
+}
+
+#movie{
+    width: 300px;
+    margin: 1rem;
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+img {
+    width: 100%;
+    border: 3px solid white;
+    border-radius: 10px;
+    position: relative;
+}
+
+.movie-info{
+    display: flex;
+    justify-content: space-between;
+    padding: .7rem 1rem;
+    color: #eee;
+}
+.movie-info #title{
+    margin-top: 0;
+}
+.movie-info span#green{
+    color: rgb(30, 129, 30);
+    font-weight: bold;
+    font-size: 19px;
+}
+.movie-info span#red{
+    color: rgb(158, 28, 28);
+    font-weight: bold;
+    font-size: 20px;
+}
+.movie-info span#yellow{
+    color: rgb(179, 142, 24);
+    font-weight: bold;
+    font-size: 20px;
 }
