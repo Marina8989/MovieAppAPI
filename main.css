@@ -20,13 +20,17 @@ body{
 .search{
     border-radius: 5px;
     border: 2px solid rgb(78, 78, 99);
-    padding: .5rem .3rem;
+    padding: .6rem .5rem;
+    margin-right: 2rem;
     background: transparent;
     transition: background .3s ease;
 }
 .search:focus{
     outline: none;
     background: #fff;
+}
+.search::placeholder{
+    color: white;
 }
 
 main{
