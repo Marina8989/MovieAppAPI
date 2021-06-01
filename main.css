@@ -15,6 +15,7 @@ body{
     padding: 1.7rem;
     display: flex;
     justify-content: flex-end;
+    background: var(--secondary-color);
 }
 .search{
     border-radius: 5px;
@@ -34,7 +35,7 @@ main{
    flex-wrap: wrap;
 }
 
-#movie{
+.movie{
     width: 300px;
     margin: 1rem;
     background: var(--secondary-color);
@@ -86,7 +87,7 @@ img {
     border-radius: 0 0 10px 10px;
     font-size: 15px;
 }
-#movie:hover .overview{
+.movie:hover .overview{
     transform: translateY(-24.5%);
     border-radius: 0 0 10px 10px;
 }
