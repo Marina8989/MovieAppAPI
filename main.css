@@ -39,12 +39,14 @@ main{
     margin: 1rem;
     background: var(--secondary-color);
     border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 img {
     width: 100%;
     border: 3px solid white;
     border-radius: 10px;
-    position: relative;
 }
 
 .movie-info{
@@ -70,4 +72,20 @@ img {
     color: rgb(179, 142, 24);
     font-weight: bold;
     font-size: 20px;
+}
+.overview{
+    position: absolute;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: .6rem;
+    min-height: 30vh;
+    transform: translateY(101%);
+    transition: transform 2s ease;
+    border-radius: 0 0 10px 10px;
+}
+#movie:hover .overview{
+    transform: translateY(-32.8%);
+    border-radius: 0 0 10px 10px;
 }
