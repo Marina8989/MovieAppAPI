@@ -80,12 +80,13 @@ img {
     bottom: 0;
     right: 0;
     padding: .6rem;
-    min-height: 30vh;
+    min-height: 40vh;
     transform: translateY(101%);
     transition: transform 2s ease;
     border-radius: 0 0 10px 10px;
+    font-size: 15px;
 }
 #movie:hover .overview{
-    transform: translateY(-32.8%);
+    transform: translateY(-24.5%);
     border-radius: 0 0 10px 10px;
 }
