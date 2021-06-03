@@ -2,9 +2,9 @@ const API_KEY = 'api_key=4c3ad92dbbd8b98710480f66cb2e91bf';
 const BASE_URL = 'https://api.themoviedb.org/3';
 const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&' + API_KEY;
 const IMAGE_URL = 'https://image.tmdb.org/t/p/w500';
-const main = document.getElementById('main');
 const SEARCH_URL = '/search/movie?';
 
+const main = document.getElementById('main');
 const form = document.getElementById('form');
 const search = document.getElementById('search');
 const tags = document.querySelector('.tags');
@@ -57,11 +57,27 @@ function getGenre() {
              }
           }
           getMovie(API_URL+'&with_genres='+encodeURI(selectedGenre.join(', ')));
+          highlight();
           console.log(selectedGenre);
        })
-
        tags.append(tag);
     })
+}
+
+
+function highlight() {
+  const tag = document.querySelectorAll('.tag');
+  
+  tag.forEach(item => {
+     item.classList.remove('highlight');
+  })
+  
+  if(selectedGenre.length != 0) {
+     selectedGenre.forEach(id => {
+        const hightlitedItem = document.getElementById(id);
+        hightlitedItem.classList.add('highlight');
+     })
+  }
 }
 
 
