@@ -67,7 +67,7 @@ function getGenre() {
 
 function highlight() {
   const tag = document.querySelectorAll('.tag');
-  
+
   tag.forEach(item => {
      item.classList.remove('highlight');
   })
@@ -95,12 +95,15 @@ function showMovie(data) {
 
     data.forEach(movie => {
        const {title, poster_path, vote_average, overview} = movie;
+        
+       let pic = poster_path ? poster_path : 'demo.jpg';
+       console.log(pic)
 
        const movieDiv = document.createElement('div');
         movieDiv.classList.add('movie');
 
         movieDiv.innerHTML = `
-           <img src="${IMAGE_URL+poster_path}" alt="${title}">
+           <img src="${poster_path ? IMAGE_URL+poster_path : 'demo.jpg'}" alt="${title}">
            <div class="movie-info">
               <h3 id="title">${title}</h3>
               <span id="${getVote(vote_average)}">${vote_average}</span>
