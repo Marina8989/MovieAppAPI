@@ -31,7 +31,7 @@ const genres = [
    {id:37,name:"Western"}
 ]
 
-const selectedGenre = [];
+let selectedGenre = [];
 
 getGenre();
 function getGenre() {
@@ -72,6 +72,8 @@ function highlight() {
      item.classList.remove('highlight');
   })
   
+  clearAllBtn();
+
   if(selectedGenre.length != 0) {
      selectedGenre.forEach(id => {
         const hightlitedItem = document.getElementById(id);
@@ -80,13 +82,35 @@ function highlight() {
   }
 }
 
+function clearAllBtn() {
+   let clearBtn = document.getElementById('clear');
+   if(clearBtn) {
+      clearBtn.classList.add('highlight');
+   }else {
+     let clear = document.createElement('div');
+     clear.classList.add('tag', 'highlight');
+     clear.id = 'clear';
+     clear.innerText = 'Clear All';
+     clear.addEventListener('click', () => {
+        selectedGenre = [];
+        getGenre();
+        getMovie(API_URL);
+     })
+     tags.append(clear);
+   }
+}
+
 
 
 getMovie(API_URL);
 
 function getMovie(url) {
      fetch(url).then(res => res.json()).then(data => {
-         showMovie(data.results);
+        if(data.results.length != 0) {
+          showMovie(data.results);
+        }else {
+           main.innerHTML = '<h1 class="no-results">No Matching Results Found</h1>'
+        }
      })
 }
 
@@ -95,12 +119,9 @@ function showMovie(data) {
 
     data.forEach(movie => {
        const {title, poster_path, vote_average, overview} = movie;
-        
-       let pic = poster_path ? poster_path : 'demo.jpg';
-       console.log(pic)
-
+       
        const movieDiv = document.createElement('div');
-        movieDiv.classList.add('movie');
+       movieDiv.classList.add('movie');
 
         movieDiv.innerHTML = `
            <img src="${poster_path ? IMAGE_URL+poster_path : 'demo.jpg'}" alt="${title}">
