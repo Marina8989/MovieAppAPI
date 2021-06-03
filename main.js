@@ -7,6 +7,7 @@ const SEARCH_URL = '/search/movie?';
 
 const form = document.getElementById('form');
 const search = document.getElementById('search');
+const tags = document.querySelector('.tags');
 
 const genres = [
    {id:28,name:"Action"},
@@ -29,6 +30,39 @@ const genres = [
    {id:10752,name:"War"},
    {id:37,name:"Western"}
 ]
+
+const selectedGenre = [];
+
+getGenre();
+function getGenre() {
+   tags.innerHTML = '';
+    genres.forEach(genre => {
+       const tag = document.createElement('div');
+       tag.classList.add('tag');
+       tag.id = genre.id;
+       tag.innerText = genre.name;
+         
+       tag.addEventListener('click', () => {
+          if(selectedGenre.length == 0) {
+             selectedGenre.push(tag.id);
+          }else {
+             if(selectedGenre.includes(tag.id)) {
+                selectedGenre.forEach((id, idx) => {
+                   if(id == tag.id) {
+                      selectedGenre.splice(idx, 1);
+                   }
+                })
+             }else{
+                selectedGenre.push(tag.id);
+             }
+          }
+          getMovie(API_URL+'&with_genres='+encodeURI(selectedGenre.join(', ')));
+          console.log(selectedGenre);
+       })
+
+       tags.append(tag);
+    })
+}
 
 
 
