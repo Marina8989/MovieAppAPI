@@ -151,6 +151,8 @@ function getVote(vote) {
 form.addEventListener('submit', (e)=> {
     e.preventDefault();
    const searchTerm = search.value;
+   selectedGenre = [];
+   getGenre();
      if(searchTerm) {
         getMovie(BASE_URL +'/search/movie?'+API_KEY +'&query='+searchTerm);
         search.value = '';
